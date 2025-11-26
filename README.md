@@ -69,7 +69,3 @@ const { image } = await generateImage({
   prompt: "Your prompt here",
 });
 ```
-
-## Documentation
-
-For more information about using the AI SDK with custom providers, check out the [AI SDK documentation](https://sdk.vercel.ai/docs).
