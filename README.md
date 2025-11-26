@@ -35,6 +35,20 @@ fs.writeFileSync(filename, image.uint8Array);
 console.log(`Image saved to ${filename}`);
 ```
 
+If you need to pass additional inputs to the model besides the prompt, use the `providerOptions.wavespeedai` property:
+
+```ts
+const { image } = await generateImage({
+  model: wavespeedai.image("google/nano-banana-pro/text-to-image"),
+  prompt: "A detailed cat working as a café barista",
+  providerOptions: {
+    wavespeedai: {
+      customInput: "this model needs this extra field",
+    },
+  },
+});
+```
+
 ## Configuration
 
 You can also create a custom provider instance with specific settings:
