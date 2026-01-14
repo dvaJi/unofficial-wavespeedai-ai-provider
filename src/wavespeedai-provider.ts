@@ -1,4 +1,4 @@
-import { ProviderV2, NoSuchModelError } from "@ai-sdk/provider";
+import { ProviderV3, NoSuchModelError } from "@ai-sdk/provider";
 import { FetchFunction, loadApiKey, withUserAgentSuffix } from "@ai-sdk/provider-utils";
 import { WaveSpeedAIImageModelId } from "./wavespeedai-image-settings";
 import { WaveSpeedAIImageModel } from "./wavespeedai-image-model";
@@ -29,7 +29,7 @@ or to provide a custom fetch implementation for e.g. testing.
   fetch?: FetchFunction;
 }
 
-export interface WaveSpeedAIProvider extends ProviderV2 {
+export interface WaveSpeedAIProvider extends ProviderV3 {
   /**
    * Creates a WaveSpeedAI image generation model.
    */
@@ -63,21 +63,25 @@ export function createWaveSpeedAI(options: WaveSpeedAIProviderSettings = {}): Wa
       fetch: options.fetch,
     });
 
+  const embeddingModel = (modelId: string) => {
+    throw new NoSuchModelError({
+      modelId,
+      modelType: 'embeddingModel',
+    });
+  };
+
   return {
+    specificationVersion: 'v3' as const,
     image: createImageModel,
     imageModel: createImageModel,
-    languageModel: () => {
+    languageModel: (modelId: string) => {
       throw new NoSuchModelError({
-        modelId: "languageModel",
-        modelType: "languageModel",
+        modelId,
+        modelType: 'languageModel',
       });
     },
-    textEmbeddingModel: () => {
-      throw new NoSuchModelError({
-        modelId: "textEmbeddingModel",
-        modelType: "textEmbeddingModel",
-      });
-    },
+    embeddingModel,
+    textEmbeddingModel: embeddingModel,
   };
 }
 

@@ -1,6 +1,6 @@
 import fs from "fs";
 import { createWaveSpeedAI } from "../src/index";
-import { experimental_generateImage as generateImage } from "ai";
+import { generateImage } from "ai";
 
 const wavespeedai = createWaveSpeedAI({
   apiToken: "d99d9cd70cad1ee21ab267b4365347a288a991f1c61f3f1510beea0deb7e1933",

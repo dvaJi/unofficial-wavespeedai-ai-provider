@@ -1,4 +1,4 @@
-import type { ImageModelV2, ImageModelV2CallWarning } from "@ai-sdk/provider";
+import type { ImageModelV3, SharedV3Warning } from "@ai-sdk/provider";
 import type { Resolvable } from "@ai-sdk/provider-utils";
 import {
   FetchFunction,
@@ -23,8 +23,8 @@ interface WaveSpeedAIImageModelConfig {
   };
 }
 
-export class WaveSpeedAIImageModel implements ImageModelV2 {
-  readonly specificationVersion = "v2";
+export class WaveSpeedAIImageModel implements ImageModelV3 {
+  readonly specificationVersion = "v3";
   readonly maxImagesPerCall = 1;
 
   get provider(): string {
@@ -34,7 +34,7 @@ export class WaveSpeedAIImageModel implements ImageModelV2 {
   constructor(
     readonly modelId: WaveSpeedAIImageModelId,
     private readonly config: WaveSpeedAIImageModelConfig,
-  ) {}
+  ) { }
 
   async doGenerate({
     prompt,
@@ -45,8 +45,8 @@ export class WaveSpeedAIImageModel implements ImageModelV2 {
     providerOptions,
     headers,
     abortSignal,
-  }: Parameters<ImageModelV2["doGenerate"]>[0]): Promise<Awaited<ReturnType<ImageModelV2["doGenerate"]>>> {
-    const warnings: Array<ImageModelV2CallWarning> = [];
+  }: Parameters<ImageModelV3["doGenerate"]>[0]): Promise<Awaited<ReturnType<ImageModelV3["doGenerate"]>>> {
+    const warnings: Array<SharedV3Warning> = [];
 
     const currentDate = this.config._internal?.currentDate?.() ?? new Date();
 
