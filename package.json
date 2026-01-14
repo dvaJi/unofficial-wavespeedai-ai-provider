@@ -1,7 +1,7 @@
 {
-  "name": "unofficial-wavespeedai-ai-provider",
+  "name": "wavespeedai-ai-provider",
   "version": "0.0.2",
-  "description": "Vercel AI Provider for WaveSpeedAI.",
+  "description": "Unofficial Vercel AI Provider for WaveSpeedAI.",
   "type": "module",
   "files": [
     "dist"
@@ -58,15 +58,15 @@
     "email": "francisco_p@outlook.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/dvaJi/unofficial-wavespeedai-ai-provider",
+  "homepage": "https://github.com/dvaJi/wavespeedai-ai-provider",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dvaJi/unofficial-wavespeedai-ai-provider.git"
+    "url": "git+https://github.com/dvaJi/wavespeedai-ai-provider.git"
   },
   "bugs": {
-    "url": "https://github.com/dvaJi/unofficial-wavespeedai-ai-provider/issues"
+    "url": "https://github.com/dvaJi/wavespeedai-ai-provider/issues"
   },
-  "packageManager": "bun@1.3.3",
+  "packageManager": "bun@1.3.6",
   "publishConfig": {
     "access": "public"
   }
