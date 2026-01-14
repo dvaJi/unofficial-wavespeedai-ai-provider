@@ -4,10 +4,10 @@ The **WaveSpeedAI provider** for the [AI SDK](https://ai-sdk.dev/docs) enables i
 
 ## Setup
 
-The WaveSpeedAI provider is available in the `unofficial-wavespeedai-ai-provider` package. You can install it with
+The WaveSpeedAI provider is available in the `wavespeedai-ai-provider` package. You can install it with
 
 ```bash
-npm install unofficial-wavespeedai-ai-provider
+npm install wavespeedai-ai-provider@latest
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ WAVESPEEDAI_API_TOKEN="your-api-token-here"
 Then import and use the provider for image generation:
 
 ```ts
-import { wavespeedai } from "unofficial-wavespeedai-ai-provider";
+import { wavespeedai } from "wavespeedai-ai-provider";
 import { experimental_generateImage as generateImage } from "ai";
 
 const { image } = await generateImage({
@@ -54,7 +54,7 @@ const { image } = await generateImage({
 You can also create a custom provider instance with specific settings:
 
 ```ts
-import { createWaveSpeedAI } from "unofficial-wavespeedai-ai-provider";
+import { createWaveSpeedAI } from "wavespeedai-ai-provider";
 
 const wavespeedaiProvider = createWaveSpeedAI({
   apiToken: process.env.WAVESPEEDAI_API_TOKEN, // Optional if using environment variables
